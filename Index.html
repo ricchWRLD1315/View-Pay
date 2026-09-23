@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViewPay</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>ViewPay</h1>
+        <p>Watch. Earn. Refer. Redeem.</p>
+    </header>
+
+    <main>
+
+        <section class="balance">
+            <p>Your ViewPoints</p>
+            <h2 id="points">0 VP</h2>
+        </section>
+
+        <section class="card">
+            <h2>Sponsored Content</h2>
+            <p>View qualifying sponsored content and earn ViewPoints.</p>
+
+            <button onclick="watchAd()">
+                Watch & Earn
+            </button>
+        </section>
+
+        <section class="card">
+            <h2>Referral</h2>
+            <p>Invite friends and earn additional ViewPoints.</p>
+
+            <button onclick="refer()">
+                Invite Friends
+            </button>
+        </section>
+
+        <section class="card">
+            <h2>Redeem</h2>
+            <p>Convert your ViewPoints into available rewards.</p>
+
+            <button onclick="redeem()">
+                Redeem Points
+            </button>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 ViewPay</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
