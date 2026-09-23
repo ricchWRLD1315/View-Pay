@@ -1,60 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ViewPay</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ViewPay</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f4f7fb;
+      color: #172033;
+    }
+
+    .header {
+      background: #111827;
+      color: white;
+      padding: 22px 18px;
+      border-radius: 0 0 25px 25px;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      margin-bottom: 5px;
+    }
+
+    .header p {
+      color: #cbd5e1;
+    }
+
+    .container {
+      padding: 18px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .balance {
+      background: white;
+      padding: 22px;
+      border-radius: 18px;
+      margin-top: -5px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+
+    .balance-title {
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    .points {
+      font-size: 36px;
+      font-weight: bold;
+      margin: 8px 0;
+    }
+
+    .points span {
+      font-size: 15px;
+      color: #64748b;
+    }
+
+    .section-title {
+      margin: 25px 0 12px;
+      font-size: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 18px;
+      border-radius: 18px;
+      margin-bottom: 14px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    }
+
+    .card h3 {
+      margin-bottom: 7px;
+    }
+
+    .card p {
+      color: #64748b;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    button {
+      width: 100%;
+      border: none;
+      padding: 14px;
+      margin-top: 13px;
+      border-radius: 12px;
+      background: #2563eb;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    .referral {
+      background: #111827;
+      color: white;
+    }
+
+    .referral p {
+      color: #cbd5e1;
+    }
+
+    .bottom-nav {
+      position: sticky;
+      bottom: 0;
+      margin-top: 25px;
+      background: white;
+      padding: 14px;
+      display: flex;
+      justify-content: space-around;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .bottom-nav div {
+      text-align: center;
+      font-size: 13px;
+      color: #64748b;
+    }
+  </style>
 </head>
 
 <body>
 
-    <header>
-        <h1>ViewPay</h1>
-        <p>Watch. Earn. Refer. Redeem.</p>
-    </header>
+  <div class="header">
+    <h1>ViewPay</h1>
+    <p>Watch. Earn. Refer. Reward.</p>
+  </div>
 
-    <main>
+  <div class="container">
 
-        <section class="balance">
-            <p>Your ViewPoints</p>
-            <h2 id="points">0 VP</h2>
-        </section>
+    <div class="balance">
+      <div class="balance-title">Your ViewPoints</div>
+      <div class="points" id="points">0 <span>VP</span></div>
+      <p>Keep engaging with qualifying sponsored content to earn points.</p>
+    </div>
 
-        <section class="card">
-            <h2>Sponsored Content</h2>
-            <p>View qualifying sponsored content and earn ViewPoints.</p>
+    <h2 class="section-title">Sponsored Content</h2>
 
-            <button onclick="watchAd()">
-                Watch & Earn
-            </button>
-        </section>
+    <div class="card">
+      <h3>🎬 Sponsored Video</h3>
+      <p>
+        Watch qualifying sponsored content and earn ViewPoints.
+      </p>
+      <button onclick="watchAd()">Watch & Earn</button>
+    </div>
 
-        <section class="card">
-            <h2>Referral</h2>
-            <p>Invite friends and earn additional ViewPoints.</p>
+    <h2 class="section-title">Refer & Earn</h2>
 
-            <button onclick="refer()">
-                Invite Friends
-            </button>
-        </section>
+    <div class="card referral">
+      <h3>👥 Invite Friends</h3>
+      <p>
+        Invite friends to ViewPay and earn additional ViewPoints when
+        qualifying referral conditions are completed.
+      </p>
+      <button onclick="shareViewPay()">Share ViewPay</button>
+    </div>
 
-        <section class="card">
-            <h2>Redeem</h2>
-            <p>Convert your ViewPoints into available rewards.</p>
+    <h2 class="section-title">Rewards</h2>
 
-            <button onclick="redeem()">
-                Redeem Points
-            </button>
-        </section>
+    <div class="card">
+      <h3>🎁 Redeem ViewPoints</h3>
+      <p>
+        Your rewards section will appear here once redemption is enabled.
+      </p>
+      <button onclick="redeem()">View Rewards</button>
+    </div>
 
-    </main>
+  </div>
 
-    <footer>
-        <p>© 2026 ViewPay</p>
-    </footer>
+  <div class="bottom-nav">
+    <div>🏠<br>Home</div>
+    <div>🎬<br>Earn</div>
+    <div>👥<br>Refer</div>
+    <div>🎁<br>Rewards</div>
+  </div>
 
-    <script src="script.js"></script>
+  <script>
+
+    let points = 0;
+
+    function watchAd() {
+      alert("Sponsored content will be connected here.");
+    }
+
+    function shareViewPay() {
+      alert("Referral system will be connected here.");
+    }
+
+    function redeem() {
+      alert("Rewards and withdrawal system will be connected here.");
+    }
+
+  </script>
 
 </body>
 </html>
