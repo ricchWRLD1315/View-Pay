@@ -14,196 +14,317 @@
     }
 
     body {
-      background: #f4f7fb;
+      background: #f5f7fb;
       color: #172033;
+      padding-bottom: 75px;
     }
 
-    .header {
-      background: #111827;
+    .app {
+      max-width: 500px;
+      margin: auto;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #172033;
       color: white;
-      padding: 22px 18px;
+      padding: 22px 20px;
       border-radius: 0 0 25px 25px;
     }
 
-    .header h1 {
-      font-size: 28px;
-      margin-bottom: 5px;
+    .brand {
+      font-size: 25px;
+      font-weight: bold;
+      margin-bottom: 20px;
     }
 
-    .header p {
-      color: #cbd5e1;
+    .welcome {
+      font-size: 15px;
+      opacity: .8;
     }
 
-    .container {
-      padding: 18px;
-      max-width: 600px;
-      margin: auto;
-    }
-
-    .balance {
-      background: white;
+    .balance-card {
+      margin-top: 15px;
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
       padding: 22px;
-      border-radius: 18px;
-      margin-top: -5px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      border-radius: 20px;
+      color: white;
     }
 
     .balance-title {
-      color: #64748b;
       font-size: 14px;
+      opacity: .85;
     }
 
-    .points {
-      font-size: 36px;
+    .balance {
+      font-size: 34px;
       font-weight: bold;
       margin: 8px 0;
     }
 
-    .points span {
-      font-size: 15px;
-      color: #64748b;
+    .content {
+      padding: 20px;
     }
 
     .section-title {
-      margin: 25px 0 12px;
-      font-size: 20px;
+      font-size: 19px;
+      font-weight: bold;
+      margin: 20px 0 12px;
     }
 
-    .card {
+    .ad-card {
       background: white;
       padding: 18px;
       border-radius: 18px;
-      margin-bottom: 14px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+      margin-bottom: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,.06);
     }
 
-    .card h3 {
+    .ad-card h3 {
       margin-bottom: 7px;
     }
 
-    .card p {
-      color: #64748b;
+    .ad-card p {
+      color: #687386;
       font-size: 14px;
-      line-height: 1.5;
+      margin-bottom: 14px;
     }
 
     button {
-      width: 100%;
       border: none;
-      padding: 14px;
-      margin-top: 13px;
-      border-radius: 12px;
       background: #2563eb;
       color: white;
-      font-size: 16px;
+      padding: 12px 18px;
+      border-radius: 10px;
       font-weight: bold;
       cursor: pointer;
     }
 
-    button:hover {
-      background: #1d4ed8;
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 15px;
     }
 
-    .referral {
-      background: #111827;
-      color: white;
-    }
-
-    .referral p {
-      color: #cbd5e1;
-    }
-
-    .bottom-nav {
-      position: sticky;
-      bottom: 0;
-      margin-top: 25px;
+    .stat {
       background: white;
+      padding: 18px;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0,0,0,.05);
+    }
+
+    .stat-number {
+      font-size: 22px;
+      font-weight: bold;
+      margin-top: 7px;
+    }
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .profile-card,
+    .reward-card,
+    .referral-card {
+      background: white;
+      padding: 20px;
+      border-radius: 18px;
+      margin-bottom: 14px;
+      box-shadow: 0 4px 15px rgba(0,0,0,.05);
+    }
+
+    .referral-code {
+      background: #eef2ff;
       padding: 14px;
+      border-radius: 10px;
+      margin: 15px 0;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: white;
+      border-top: 1px solid #ddd;
       display: flex;
       justify-content: space-around;
-      border-top: 1px solid #e5e7eb;
+      padding: 10px 5px;
+      z-index: 10;
     }
 
-    .bottom-nav div {
+    nav button {
+      background: transparent;
+      color: #687386;
+      padding: 7px;
+      font-size: 12px;
+    }
+
+    nav button.active {
+      color: #2563eb;
+    }
+
+    .icon {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 3px;
+    }
+
+    .empty {
       text-align: center;
-      font-size: 13px;
-      color: #64748b;
+      padding: 50px 20px;
+      color: #687386;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="header">
-    <h1>ViewPay</h1>
-    <p>Watch. Earn. Refer. Reward.</p>
-  </div>
+<div class="app">
 
-  <div class="container">
+  <!-- HOME -->
+  <section id="home" class="page active">
 
-    <div class="balance">
-      <div class="balance-title">Your ViewPoints</div>
-      <div class="points" id="points">0 <span>VP</span></div>
-      <p>Keep engaging with qualifying sponsored content to earn points.</p>
+    <header>
+      <div class="brand">ViewPay</div>
+      <div class="welcome">Welcome back 👋</div>
+
+      <div class="balance-card">
+        <div class="balance-title">Your ViewPoints</div>
+        <div class="balance" id="points">0 VP</div>
+        <div class="balance-title">Keep viewing to earn more.</div>
+      </div>
+    </header>
+
+    <div class="content">
+
+      <div class="stats">
+        <div class="stat">
+          <div>Today's Views</div>
+          <div class="stat-number" id="views">0</div>
+        </div>
+
+        <div class="stat">
+          <div>Referrals</div>
+          <div class="stat-number">0</div>
+        </div>
+      </div>
+
+      <div class="section-title">Sponsored Content</div>
+
+      <div class="ad-card">
+        <h3>Sponsored Video</h3>
+        <p>Watch this sponsored content and earn ViewPoints.</p>
+        <button onclick="watchAd()">▶ Watch & Earn</button>
+      </div>
+
+      <div class="ad-card">
+        <h3>Discover & Earn</h3>
+        <p>New sponsored opportunities will appear here.</p>
+        <button onclick="watchAd()">View Opportunity</button>
+      </div>
+
     </div>
+  </section>
 
-    <h2 class="section-title">Sponsored Content</h2>
 
-    <div class="card">
-      <h3>🎬 Sponsored Video</h3>
-      <p>
-        Watch qualifying sponsored content and earn ViewPoints.
-      </p>
-      <button onclick="watchAd()">Watch & Earn</button>
+  <!-- REWARDS -->
+  <section id="rewards" class="page">
+
+    <header>
+      <div class="brand">Rewards 🎁</div>
+      <div class="welcome">Use your ViewPoints for available rewards.</div>
+    </header>
+
+    <div class="content">
+
+      <div class="section-title">Available Rewards</div>
+
+      <div class="reward-card">
+        <h3>Reward coming soon</h3>
+        <p>Redeem your ViewPoints for supported rewards once redemption is enabled.</p>
+      </div>
+
+      <div class="reward-card">
+        <h3>Your Balance</h3>
+        <p id="rewardPoints">0 ViewPoints</p>
+      </div>
+
     </div>
+  </section>
 
-    <h2 class="section-title">Refer & Earn</h2>
 
-    <div class="card referral">
-      <h3>👥 Invite Friends</h3>
-      <p>
-        Invite friends to ViewPay and earn additional ViewPoints when
-        qualifying referral conditions are completed.
-      </p>
-      <button onclick="shareViewPay()">Share ViewPay</button>
+  <!-- REFERRALS -->
+  <section id="referrals" class="page">
+
+    <header>
+      <div class="brand">Referrals 👥</div>
+      <div class="welcome">Invite friends and grow your ViewPay account.</div>
+    </header>
+
+    <div class="content">
+
+      <div class="referral-card">
+        <h3>Your Referral Code</h3>
+
+        <div class="referral-code">
+          VIEWPAY001
+        </div>
+
+        <button onclick="copyReferral()">Copy Code</button>
+      </div>
+
+      <div class="referral-card">
+        <h3>How referrals work</h3>
+        <p>
+          Share your referral code with friends.
+          Referral rewards will be activated when the referral system is connected.
+        </p>
+      </div>
+
     </div>
+  </section>
 
-    <h2 class="section-title">Rewards</h2>
 
-    <div class="card">
-      <h3>🎁 Redeem ViewPoints</h3>
-      <p>
-        Your rewards section will appear here once redemption is enabled.
-      </p>
-      <button onclick="redeem()">View Rewards</button>
+  <!-- PROFILE -->
+  <section id="profile" class="page">
+
+    <header>
+      <div class="brand">Profile 👤</div>
+      <div class="welcome">Manage your ViewPay account.</div>
+    </header>
+
+    <div class="content">
+
+      <div class="profile-card">
+        <h3>My Account</h3>
+        <br>
+        <p><strong>Name:</strong> ViewPay User</p>
+        <br>
+        <p><strong>Email:</strong> Not connected</p>
+      </div>
+
+      <div class="profile-card">
+        <h3>Account Status</h3>
+        <br>
+        <p>Basic account</p>
+      </div>
+
     </div>
+  </section>
 
-  </div>
+</div>
 
-  <div class="bottom-nav">
-    <div>🏠<br>Home</div>
-    <div>🎬<br>Earn</div>
-    <div>👥<br>Refer</div>
-    <div>🎁<br>Rewards</div>
-  </div>
 
-  <script>
+<!-- BOTTOM NAVIGATION -->
+<nav>
 
-    let points = 0;
-
-    function watchAd() {
-      alert("Sponsored content will be connected here.");
-    }
-
-    function shareViewPay() {
-      alert("Referral system will be connected here.");
-    }
-
-    function redeem() {
-      alert("Rewards and withdrawal system will be connected here.");
-    }
-
-  </script>
-
-</body>
-</html>
+  <button class="active" onclick="showPage('home', this)">
+    <span
