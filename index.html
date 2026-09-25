@@ -328,3 +328,20 @@
 
   <button class="active" onclick="showPage('home', this)">
     <span
+</span>
+</button>
+</nav>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+const SUPABASE_URL = "https://mjrsqwkcvjnnajfoygwm.supabase.co";
+const SUPABASE_KEY = "sb_publishable_mCtw-Jrf7BouQNH-ESrGTw_sLGOQdQA";
+
+const supabase = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
+
+console.log("ViewPay connected to Supabase");
+</script>
